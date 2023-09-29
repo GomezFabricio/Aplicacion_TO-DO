@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Definición de la codificación de caracteres y escala -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="/static/css/stylesLayout.css">
+
+    <!-- Título de la página -->
+    <title>Lista de Tareas</title>
+</head>
+
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Título principal de la lista de tareas -->
+        <h1 class="listTitle">Tareas</h1>
+
+        <!-- Formulario para agregar una nueva tarea -->
+        <form class="inputSection" action="{{url_for('agregarTarea')}}" method="POST">
+            <!-- Campo de entrada de texto para la tarea -->
+            <input type="text" id="tareaInput" name="tarea" placeholder="Ingrese una tarea" required>
+            <!-- Botón para agregar una tarea -->
+            <button id="agregarTareaBtn" type="submit">+</button>
+        </form>
+
+        <!-- Opciones de lista (Todas, Activas, Completadas) -->
+        <div class="listOptions">
+            <ul>
+                <!-- Elemento de lista para la vista "Todas" -->
+                <li><a href="{{ url_for('tareas') }}" id="listaGeneral"
+                        class="{{ 'active' if vistaActual == 'todas' else '' }}">Todas</a></li>
+
+                <!-- Elemento de lista para la vista "Activas" -->
+                <li><a href="{{ url_for('tareasActivas') }}" id="listaActivas"
+                        class="{{ 'active' if vistaActual == 'activas' else '' }}">Activas</a></li>
+
+                <!-- Elemento de lista para la vista "Completadas" -->
+                <li><a href="" id="listaCompletadas" class="">Completadas</a></li>
+            </ul>
+        </div>
+
+        <!-- Lista de tareas (sección donde se mostrarán las tareas) -->
+        <div class="taskList">
+            <!-- Este bloque puede ser reemplazado por el contenido específico de cada vista -->
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

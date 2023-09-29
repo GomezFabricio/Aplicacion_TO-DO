@@ -1,0 +1,72 @@
+{% extends 'components/layout.html' %}
+{% block content %}
+<!-- Extiende la plantilla layout.html e inicia un bloque de contenido específico -->
+
+<head>
+    <!-- Enlace a la hoja de estilos para esta vista -->
+    <link rel="stylesheet" href="/static/css/stylesLista.css">
+</head>
+
+<div class="taskList">
+    <!-- Contenedor principal de la lista de tareas -->
+
+    <ul>
+        <!-- Lista no ordenada para las tareas -->
+        {% for tarea in listaTareas %}
+        <!-- Iteración sobre la lista de tareas para mostrar cada tarea -->
+        <li>
+            <!-- Elemento de lista para una tarea -->
+            <div class="taskItem">
+                <!-- Contenedor principal de una tarea -->
+
+                <input type="checkbox" id="tarea-{{ loop.index0 }}" class="taskCheckbox">
+                <!-- Casilla de verificación para la tarea -->
+
+                <label for="tarea-{{ loop.index0 }}" class="taskDescription">{{ tarea.getDescripcion() }}</label>
+                <!-- Etiqueta para la descripción de la tarea -->
+
+                <div class="taskIcons">
+                    <!-- Contenedor para iconos relacionados con la tarea -->
+
+                    <form action="{{ url_for('eliminarTareaActiva', tareaId=loop.index0) }}" method="GET">
+                        <!-- Formulario para eliminar la tarea activa -->
+                        <button type="submit" class="deleteButton">Eliminar</button>
+                        <!-- Botón para eliminar la tarea activa -->
+                    </form>
+
+                    <button class="editButton" dataIndex="{{ loop.index0 }}"
+                        dataDescription="{{ tarea.getDescripcion() }}"
+                        dataUrl="{{ url_for('editarTareaActiva') }}">Modificar</button>
+                    <!-- Botón para editar la tarea activa -->
+
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+        <!-- Fin del bucle que muestra las tareas -->
+    </ul>
+
+    <script src="/static/js/scriptModificar.js"></script>
+    <!-- Inclusión de un archivo JavaScript para manipular la interfaz de usuario -->
+</div>
+
+{% with messages = get_flashed_messages() %}
+<!-- Obtención de mensajes flash del servidor -->
+
+{% if messages %}
+<!-- Verificación de si existen mensajes flash -->
+<ul class="flash-messages">
+    <!-- Lista no ordenada para mostrar mensajes flash -->
+    {% for message in messages %}
+    <!-- Iteración sobre los mensajes flash -->
+    <li class="flash-message">{{ message }}</li>
+    <!-- Elemento de lista para un mensaje flash -->
+    {% endfor %}
+    <!-- Fin del bucle que muestra los mensajes flash -->
+</ul>
+{% endif %}
+<!-- Fin de la verificación de mensajes flash -->
+{% endwith %}
+
+{% endblock %}
+<!-- Fin del bloque de contenido específico -->

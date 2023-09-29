@@ -1,0 +1,58 @@
+/* Estilos de la lista de tareas */
+.taskList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.taskCheckbox {
+    margin-right: 10px;
+}
+
+.taskDescription {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+.taskIcons {
+    display: flex;
+    gap: 10px;
+    /* Espacio entre los botones */
+}
+
+/* Estilos para el botón "Modificar" */
+.editButton {
+    background-color: #2196F3;
+    /* Azul */
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    /* Ajusta el padding según tus preferencias */
+    font-weight: 700;
+}
+
+/* Estilos para el botón "Eliminar" */
+.deleteButton {
+    background-color: #f44336;
+    /* Rojo */
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    /* Ajusta el padding según tus preferencias */
+    font-weight: 700;
+}

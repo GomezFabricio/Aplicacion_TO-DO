@@ -1,0 +1,144 @@
+/* Definición de variables para la paleta de colores */
+:root {
+    --colorPrimario: #4287f5;
+    /* Azul suave */
+    --colorSecundario: #e86f51;
+    /* Naranja suave */
+    --colorFondo: #f0f0f0;
+    /* Gris claro */
+    --colorFormulario: #ffffff;
+    /* Blanco */
+    --colorTexto: #333;
+    --colorBorde: #ccc;
+
+    --tamanoFuente: 1.6rem;
+}
+
+/* Establecer el box-sizing y tamaño de fuente base */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 1 rem = 10px, 62.5% de 16px = 10px */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--colorFondo);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-size: var(--tamanoFuente);
+}
+
+.container {
+    background-color: var(--colorFormulario);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    width: 70rem;
+    /* Usando rem para el tamaño del contenedor */
+    text-align: center;
+    margin-top: 2rem;
+    /* Usando rem para el espacio superior */
+}
+
+/* Estilos del título */
+.listTitle {
+    font-size: 2rem;
+    /* Utilizando rem para el tamaño del título */
+    margin-bottom: 1.5rem;
+    /* Usando rem para el espacio inferior */
+    color: var(--colorTexto);
+}
+
+/* Estilos del input y botón */
+.inputSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+#tareaInput {
+    flex: 1;
+    padding: 1.5rem;
+    border: 1px solid var(--colorBorde);
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+
+#agregarTareaBtn {
+    background-color: var(--colorPrimario);
+    color: var(--colorFormulario);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 1.5rem 2rem;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+/* Estilos del filtro de lista */
+.listOptions ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.listOptions ul li {
+    margin-right: 1rem;
+}
+
+.listOptions ul li a {
+    text-decoration: none;
+    color: var(--colorTexto);
+    font-size: 1.6rem;
+    padding: 0.8rem 0.5rem;
+    /* Agregando una línea inferior */
+    border-bottom: 2px solid transparent;
+}
+
+.listOptions ul li a:hover {
+    background-color: transparent;
+    border-bottom: 2px solid var(--colorPrimario);
+}
+
+.listOptions ul li a.active {
+    border-bottom: 2px solid var(--colorPrimario);
+    /* Subrayado azul */
+}
+
+/* Estilos del botón de borrar tareas */
+#eliminarTareasBtn {
+    color: var(--colorSecundario);
+    border: 1px solid #f44336;
+    border-radius: 20px;
+    /* Aumentando el radio del borde */
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    /* Disminuyendo el padding */
+    margin-top: 1.5rem;
+    background-color: transparent;
+    /* Haciendo el fondo transparente */
+    float: right;
+    /* Alineando a la derecha */
+    font-weight: 700;
+}
+
+#eliminarTareasBtn:hover {
+    background-color: transparent;
+    /* Manteniendo el fondo transparente en el hover */
+    color: #f44336;
+    /* Cambiando el color en hover */
+}
